@@ -1,128 +1,10 @@
-//
-//  main.c
-//  LinkList
-//
-//  Created by Erzbir on 2022/4/7.
-//
-
-#include <stdio.h>
-#include <stdlib.h>
-typedef int ElemType;
-typedef struct LNode
-{
-    ElemType data;
-    struct LNode *next;
-}LNode,*LinkList;
-
-
-LinkList CreatHead_Linklist(int n)
-{
-    int i;
-    LNode *s;
-    LinkList L = NULL;
-    for(i=0;i<n;i++)
-    {
-        s=(LNode*)malloc(sizeof(LNode));
-        printf("第%d个元素:",i);
-        scanf("%d",&s->data);
-        s->next=L;
-        L=s;
-    }
-    return L;
-}
-
-
-LinkList CreatRear_LinkList(int n)
-{
-    LinkList L=NULL;
-    LNode*s,*r=NULL;
-    int i;
-    for(i=0;i<n;i++)
-    {
-        s=(LNode*)malloc(sizeof(LNode));
-        printf("请输入第%d个元素的值:",i);
-        scanf("%d",&s->data);
-        if(!L)L=s;
-        else r->next=s;
-        r=s;
-    }
-    if(r!=NULL)r->next=NULL;
-        return L;
-}
-
-
-LinkList Creat_LinkList(int n)
-{
-    LNode *L,*p,*q;
-    int i;
-    L=(LNode*)malloc(sizeof(LNode));
-    L->next=NULL;
-    q=L;
-    for(i=0;i<=n-1;i++)                     
-    {
-        p=(LNode *)malloc(sizeof(LNode));
-        printf("请输入第%d个元素的值:",i);
-        scanf("%d",&p->data);
-        p->next=NULL;q->next=p;q=p;
-    }
-    return L;
-}
-
-
-LinkList MergeList_L(LinkList La,LinkList Lb)
-{
-    LNode *pa,*pb,*pc,*Lc;
-    pa=La->next;pb=Lb->next;
-    Lc=pc=La;
-    while (pa&&pb)
-    {
-        if (pa->data<=pb->data)
-        {
-            pc->next=pa;
-            pc=pa;pa=pa->next;
-        }
-        else
-        {
-            pc->next=pb;
-            pc=pb;pb=pb->next;
-        }
-    }
-    pc->next=pa?pa:pb;
-    free(Lb);
-    return Lc;
-}
-
-
-void Print_LinkList(LinkList L)
-{
-    LNode *p;
-    p=L->next;
-    if(!L->data)
-    {
-        while(p)
-        {
-            printf("%d ",p->data);
-            p=p->next;
-        }
-    }
-    else
-    {
-        if(L->next!=NULL)
-        {
-            Print_LinkList(L->next);
-            printf("%d ",L->data);
-        }
-        else
-        {
-            while(L)
-            {
-                printf("%d ",L->data);
-                L=L->next;
-            }
-        }
-    }
-}
-
+#include "LinkList_include/creat_LinkLIst.h"
+#include "LinkList_include/delete_LinkList.h"
+#include "LinkList_include/length_LinkList.h"
+#include "LinkList_include/merge_LinkList.h"
+#include "LinkList_include/find_LinkList.h"
+#include "LinkList_include/print_LinkList.h"
+#include "LinkList_include/struck_LinkList.h"
 int main()
 {
     int n,m,i,l;
@@ -146,4 +28,5 @@ int main()
     printf("\n合并后的链表:");
     Print_LinkList(L_3);
     printf("\n");
+    return 0;
 }

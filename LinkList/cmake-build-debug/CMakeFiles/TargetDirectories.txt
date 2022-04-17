@@ -1,0 +1,3 @@
+/Users/erzbir/Desktop/LinkList/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/erzbir/Desktop/LinkList/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/erzbir/Desktop/LinkList/cmake-build-debug/CMakeFiles/c_program.dir
