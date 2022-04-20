@@ -19,7 +19,9 @@ int ListInsert_Sq(SqList* L, int i, ElemType e) {
         L->listsize += INCREMENT;
     }
     for (j = L->length - 1; j >= i; j--)
+    {
         L->elem[j + 1] = L->elem[j];
+    }
     L->elem[i] = e;
     ++L->length;
     return 1;

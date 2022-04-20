@@ -2,6 +2,7 @@
 #include "List_include/merge_List.h"
 #include "List_include/insert_List.h"
 #include "List_include/struck_List.h"
+#include "List_include/get_List.h"
 
 int main() {
     int i;
